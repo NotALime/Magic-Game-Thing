@@ -75,7 +75,8 @@ public class MageAI : MonoBehaviour
             yield return new WaitForSeconds(waitBeforeShot);
             for (int i = 0; i < amountOfShoots; i++)
             {
-                Instantiate(projectile, attackPoint.position, attackPoint.rotation * Quaternion.Euler(1, attackPoint.rotation.y + Random.Range(-recoil, recoil),1));
+                Bullet bullet = Instantiate(projectile, attackPoint.position, attackPoint.rotation * Quaternion.Euler(1, attackPoint.rotation.y + Random.Range(-recoil, recoil),1));
+                bullet.damageLayer = LayerMask.NameToLayer("PlayerDamage");
                 yield return new WaitForSeconds(shootDelay);
             }
             canMove = true;

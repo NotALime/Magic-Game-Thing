@@ -88,9 +88,9 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.z = Input.GetAxisRaw("Vertical");
-        movement = transform.right * moveInput.x + transform.forward * moveInput.z;
+        movement = transform.right * moveInput.x + transform.forward * moveInput.z * walkSpeed;
 
-
+        Debug.Log(moveInput.ToString());
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
         CameraMovement();
     }

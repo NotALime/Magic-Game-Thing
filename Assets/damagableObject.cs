@@ -79,8 +79,11 @@ public class damagableObject : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Bullet>())
         {
+            if (collision.gameObject.GetComponent<Bullet>().damageLayer == gameObject.layer)
+            {
                 TakeDamage(collision.gameObject.GetComponent<Bullet>().damage);
                 collision.gameObject.GetComponent<Bullet>().BulletDestroy();
+            }
         }
     }
 }
